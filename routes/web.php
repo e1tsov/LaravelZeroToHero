@@ -12,6 +12,4 @@ Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
 
-Route::post('/contacts/submit', function() {
-    dd(Request::all());
-})->name('contact-form');
+Route::post('/contacts/submit', 'ContactController@submit')->name('contact-form');
