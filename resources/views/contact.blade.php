@@ -6,6 +6,17 @@
     <h1>Контакты</h1>  
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, placeat veniam, aperiam incidunt reiciendis deserunt,
      eaque quas accusantium iusto itaque facilis sequi. Error amet eveniet debitis harum, exercitationem adipisci maxime.</p>
+     
+    @if($errors->any()) 
+        <div class="alert alert-danger">
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
      <form action="{{ route('contact-form')}}" method="post">
         @csrf
         <div class="form-group">
