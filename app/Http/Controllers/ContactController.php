@@ -10,12 +10,12 @@ class ContactController extends Controller
 {
     public function submit(ContactRequest $req) {
         $contact = new Contact();
-        $contact->namee = $req->input('name');
+        $contact->name = $req->input('name');
         $contact->email = $req->input('email');
         $contact->subject = $req->input('subject');
         $contact->message = $req->input('message');
 
         $contact->save();
-        return redirect()->route('home');
+        return redirect()->route('home')->with('success', 'Сообщение было добавлено');
     }
 }
